@@ -4,42 +4,43 @@ import { Link } from "react-router-dom";
 import { useGetProductsQuery } from "../Api/userApi";
 import { useState } from "react";
 const { Option } = Select;
-const columns = [
-  {
-    title: "No",
-    dataIndex: "id",
-    key: "id",
-  },
-  {
-    title: "Title",
-    dataIndex: "title",
-    key: "title",
-  },
-  {
-    title: "Price",
-    dataIndex: "price",
-    key: "price",
-  },
-  {
-    title: "Ratings",
-    dataIndex: "rating",
-    key: "rating",
-  },
-  {
-    title: "Brand",
-    dataIndex: "brand",
-    key: "brand",
-  },
-  {
-    title: "Action",
-    dataIndex: "",
-    key: "x",
-    render: (record: any) => <Link to={`/users/${record.id}`}>Visit </Link>,
-  },
-];
+
 const Users = () => {
+  const columns = [
+    {
+      title: "No",
+      dataIndex: "id",
+      key: "id",
+    },
+    {
+      title: "Title",
+      dataIndex: "title",
+      key: "title",
+    },
+    {
+      title: "Price",
+      dataIndex: "price",
+      key: "price",
+    },
+    {
+      title: "Ratings",
+      dataIndex: "rating",
+      key: "rating",
+    },
+    {
+      title: "Brand",
+      dataIndex: "brand",
+      key: "brand",
+    },
+    {
+      title: "Action",
+      dataIndex: "",
+      key: "x",
+      render: (record: any) => <Link to={`/users/${record.id}`}>Visit </Link>,
+    },
+  ];
   const [page, setPage] = useState(1);
-  const [limit, setLimit] = useState(10);
+  const [limit, setLimit] = useState(8);
   const { data: products, isLoading } = useGetProductsQuery([]);
   const data = products?.products;
 
